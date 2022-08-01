@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from urllib import request
 
-from .models import Administrador
+from administracao.models import Administrador
 
 
 def login(request):
@@ -20,14 +20,19 @@ def valida_login(request):
     if (len(usuario) == 0):
         return redirect('/auth/login/?status=1')
     elif(len(usuario)>0):
-        request.session['usuario'] = usuario[0].id
+        request.session['usuario'] = usuario[0].email   
         return redirect (f'/auth/home/?status=0')
+        #return HttpResponse(request.session['usuario'])
 
 def home(request):
     status = request.GET.get('status')
-
-    return render (request, 'home.html', {'status':status})
+    if request.session.get('usuario'):
+        administrador = Administrador.objects.get(email = request.session['usuario'])
+        return render(request,'home.html',{'status':status})
+    else:
+        return redirect ('auth/login/?status=2 ')
 
 
 def sair(request):
-    pass
+    request.session.flush()
+    return redirect ('auth/login/')
