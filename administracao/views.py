@@ -2,7 +2,6 @@ from hashlib import sha256
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from urllib import request
-
 from administracao.models import Administrador
 
 
