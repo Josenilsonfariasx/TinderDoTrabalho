@@ -17,3 +17,6 @@ def validar_cadastro(request):
    # senha = sha256 (senha.encode()).hexdigest()
 
     return HttpResponse(f'{nome} {email} {senha}')
+
+def validar_login(request):
+    pass
