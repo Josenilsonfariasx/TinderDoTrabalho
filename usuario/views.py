@@ -1,12 +1,13 @@
 from hashlib import sha256
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
+
+from usuario.models import usuario
 
 
 def cadastrar(request):
-    return render(request, 'cadastro.html')
-
-
+    status = request.GET.get('status')
+    return render(request, 'cadastro.html', {'status':status})
 
 def validar_cadastro(request):
     
@@ -14,9 +15,29 @@ def validar_cadastro(request):
     senha = request.POST.get('senha')
     nome = request.POST.get('nome')
 
-   # senha = sha256 (senha.encode()).hexdigest()
+    Usuario = usuario.objects.filter(email = email)
 
-    return HttpResponse(f'{nome} {email} {senha}')
+    if len(email.strip()) == 0 or len(senha.strip()) == 0 or len(nome.strip()) == 0 :
+        return redirect ('/auth/cadastrar/?status=1')
+    
+    elif len(senha) < 8:
+        return redirect ('/auth/cadastrar/?status=2')
+    
+    if len(Usuario) > 0:
+        return redirect ('/auth/cadastrar/?status=3')
+
+    try:
+        senha = sha256(senha.encode()).hexdigest
+        Usuario = usuario(nome = nome, email=email, senha = senha)
+        Usuario.save()
+
+        return redirect ('/auth/logar/?status=0')
+    except:
+        return redirect ('/auth/cadastrar/?status=4')
+
+def logar(request):
+    status = request.GET.get('status')
+    return render(request, 'logar.html', {'status':status})
 
 def validar_login(request):
     pass
