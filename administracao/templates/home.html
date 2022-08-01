@@ -1,2 +1,21 @@
 {% extends 'base.html'%} 
+
 {% block 'title' %} Pagina inicial {%endblock %}
+
+{% block 'head' %} 
+
+{%endblock %}
+
+
+{% block 'body' %}
+
+<div class ='container'>
+
+    {%if status == '0'%}
+        <div class="alert alert-success" role="alert">
+            Bem Vindo
+        </div>
+    {%endif%}
+</div>
+
+{%endblock %}

@@ -1,24 +1,33 @@
 from hashlib import sha256
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-# Create your views here.
+from urllib import request
+
+from .models import Administrador
 
 
 def login(request):
-    return render(request, 'login.html')
+    status = request.GET.get('status')
+    return render(request, 'login.html', {'status':status})
 
 def valida_login(request):
     email = request.POST.get('email')
     senha = request.POST.get('senha')
+    
+    #senha = sha256 (senha.encode()).hexdigest()
+    usuario = Administrador.objects.filter(email = email).filter(senha=senha)
 
-    senha = sha256 (senha.encode()).hexdigest()
-
-    return HttpResponse(f'{email} {senha}')
-
-"""    if email == 'fariasx@gmail.com' and senha == 'admin':
-        return redirect('/auth/home') 
-    else:
-        return redirect('/auth/login/?status=1')"""
+    if (len(usuario) == 0):
+        return redirect('/auth/login/?status=1')
+    elif(len(usuario)>0):
+        request.session['usuario'] = usuario[0].id
+        return redirect (f'/auth/home/?status=0')
 
 def home(request):
-    return render(request, 'home.html')
+    status = request.GET.get('status')
+
+    return render (request, 'home.html', {'status':status})
+
+
+def sair(request):
+    pass
