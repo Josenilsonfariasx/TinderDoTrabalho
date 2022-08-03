@@ -8,9 +8,9 @@
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">{{vaga.nome}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{vaga.categoria}}</h6>
-                    <p class="card-text">{{vaga.descricao}}</p>
-                <a href="#" class="card-link">Ver +</a>
+                <h6 class="card-subtitle mb-2 text-muted">{{vaga.requisitos}}</h6>
+                    <p class="card-text">{{vaga.requisitos}}</p>
+                <a href="{% url 'i_vagas' vaga.id %}" class="card-link">Ver +</a>
             </div>
         </div>
     </div>
