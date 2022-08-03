@@ -1,0 +1,18 @@
+{%extends 'base.html'%} 
+{% block  'title'%}Vaga {{vaga.categoria}}{%endblock  %}
+{%block 'body'%}
+
+    <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{vaga.nome}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Direcionado Para desenvolvedores {{vaga.categoria}}<br><br></h6>
+      <h5 class="card-text">Descrição da Vaga:</h5><p class="card-text"<br>{{vaga.descricao}}</p>
+      <h5 class="card-text">Faixa Salarial:</h5><p class="card-text"<br>{{vaga.faixa_salarial}}</p>
+      <h5 class="card-text">Requisitos da Vaga:</h5><p class="card-text">{{vaga.requisitos}}</p>
+      <h5 class="card-text">Escolaridade Minima:</h5><p class="card-text"<br>{{vaga.escolaridade}}</p>
+      <a href="{%url 'listar_vagas'%}" class="card-link">Voltar</a>
+      <a href="#" class="card-link">Editar Vaga</a>
+    </div>
+  </div>
+
+{%endblock%}

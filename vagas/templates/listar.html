@@ -1,7 +1,24 @@
 {% extends 'base.html' %}
-
+{%block 'title'%}Listar vagas{%endblock%}
 {% block  'body'%}
 <div class='container'>
+   
+    {%if not vagas%}
+
+    <div class="card text-center">
+        <div class="card-header">
+          VAGAS
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Listagem de vagas</h5>
+          <p class="card-text">Nao conseguimos encontrar vagas cadastradas redirecione para pagina de gerenciamento de vagas e crie uma nova vaga </p>
+          <a href="#" class="btn btn-primary">Gerenciamento de vaga</a>
+        </div>
+        <div class="card-footer text-muted">
+          2 days ago
+        </div>
+      </div>
+      {% endif %}
     <div class='row'>
     {% for vaga in vagas  %}
         <div class='col-md'>
@@ -14,7 +31,8 @@
             </div>
         </div>
     </div>
-{% endfor %} 
+{% endfor %}
+
 </div>
 
 {%endblock  %}

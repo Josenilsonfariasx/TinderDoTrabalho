@@ -9,7 +9,7 @@ class Categoria(models.Model):
 class Vagas(models.Model):
     nome = models.CharField(max_length = 100)
     descricao = models.TextField(max_length=2000)
-    faixa_salarial = models.TextField(max_length=20)
+    faixa_salarial = models.IntegerField(max_length=3)
     requisitos = models.TextField(max_length=100)
     escolaridade = models.CharField(max_length=50, null=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING, null=True)

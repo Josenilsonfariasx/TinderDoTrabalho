@@ -12,4 +12,5 @@ def listar_vagas(request):
     vagas = Vagas.objects.all()
     return render (request, 'listar.html', {'vagas': vagas})
 def i_vagas (request,id):
-    return HttpResponse(id)
+    vaga = Vagas.objects.get(id = id)
+    return render(request, 'info.html',{'vaga': vaga})
