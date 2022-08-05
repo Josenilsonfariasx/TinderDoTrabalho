@@ -5,16 +5,14 @@
 <form class='control'>
       <label >Nome da Vaga:</label>
       <input class="form-control" style="width:50%;"  type="text" value="{{vaga.nome}}"></input><br>
-      <label >Categoria da Vaga:</label>
-      <input class="form-control" style="width:50%;"  value="{{vaga.categoria}}"></input><br>
       <label >Descricao da Vaga:</label><br>
       <textarea style="width:50%;" name="descricao" rows="4">{{vaga.descricao}}</textarea><br><br>
       <label >Faixa Salarial:</label>
       <select class="form-control" style="width:20%;" name="faixa_salarial">
-        <option select>Ate 1.000 R$</option>
-        <option select>De 1.000 R$ Ate 2000R$</option>
-        <option select>De 2.000 R$ Ate 3000R$</option>
-        <option select>Acima de 3.000 R$</option>
+        <option select value="Ate 1k">Ate 1.000 R$</option>
+        <option select value="De 1k a 2k">De 1.000 R$ Ate 2000R$</option>
+        <option select value="De 2k a 3k">De 2.000 R$ Ate 3000R$</option>
+        <option select value="Acima de 3k">Acima de 3.000 R$</option>
       </select></br>
       <label >Requesitos da Vaga:</label><br>
       <input class="form-control" style="width:50%;" value="{{vaga.requisitos}}"></input><br>

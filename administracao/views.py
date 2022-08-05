@@ -9,7 +9,6 @@ def login(request):
 
     status = request.GET.get('status')
     return render(request, 'login.html', {'status':status})
-    sair()
 
 def valida_login(request):
     email = request.POST.get('email')
@@ -21,7 +20,7 @@ def valida_login(request):
     if (len(usuario) == 0):
         return redirect('/auth/login/?status=1')
     elif(len(usuario)>0):
-        request.session['usuario'] = usuario[0].email   
+        request.session['usuario'] = usuario[0].id   
         return redirect (f'/auth/home/?status=0')
         #return HttpResponse(request.session['usuario'])
 
@@ -32,7 +31,7 @@ def sair(request):
 def home(request):
     status = request.GET.get('status')
     if request.session.get('usuario'):
-        administrador = Administrador.objects.get(email = request.session['usuario'])
+        administrador = Administrador.objects.get(id = request.session['usuario'])
         return render(request,'home.html',{'status':status})
     else:
         return redirect ('/auth/login/?status=2')

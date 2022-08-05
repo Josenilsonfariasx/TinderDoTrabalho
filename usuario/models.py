@@ -7,7 +7,5 @@ class usuario(models.Model):
     senha = models.CharField(max_length=64)
     idade = models.CharField(max_length=4)
 
-
-
     def __str__(self) -> str:
         return self.nome

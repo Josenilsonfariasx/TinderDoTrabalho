@@ -1,26 +1,24 @@
 {% extends 'base.html' %}
 {%block 'title'%}Listar vagas{%endblock%}
 {% block  'body'%}
-<div class='container'>
-   
+<div class='container'><br>
     {%if not vagas%}
-
-    <div class="card text-center">
+    <br><br><div class="card text-center">
         <div class="card-header">
           VAGAS
         </div>
         <div class="card-body">
           <h5 class="card-title">Listagem de vagas</h5>
-          <p class="card-text">Nao conseguimos encontrar vagas cadastradas redirecione para pagina de gerenciamento de vagas e crie uma nova vaga </p>
-          <a href="#" class="btn btn-primary">Gerenciamento de vaga</a>
+          <p class="card-text">Nao conseguimos encontrar vagas cadastradas<br>Cadastre uma nova Vaga </p>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Nova Vaga</button>
         </div>
         <div class="card-footer text-muted">
           2 days ago
         </div>
       </div>
       {% endif %}
-    <div class='row'>
-    {% for vaga in vagas  %}
+      <div class='row'>
+      {% for vaga in vagas  %}
         <div class='col-md'>
         <div class="card" style="width: 18rem;">
             <div class="card-body">
@@ -28,11 +26,51 @@
                 <h6 class="card-subtitle mb-2 text-muted">{{vaga.requisitos}}</h6>
                     <p class="card-text">{{vaga.requisitos}}</p>
                 <a href="{% url 'i_vagas' vaga.id %}" class="card-link">Ver +</a>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 {% endfor %}
-
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cadastrar Vaga</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="" method="POST">
+          <label >Nome da Vaga:</label>
+          <input class="form-control" style="width:50%;"  value=""></input><br>
+          <label >Descricao da Vaga:</label><br>
+          <textarea style="width:50%;" name="descricao" rows="4"></textarea><br><br>
+          <label >Faixa Salarial:</label>
+          <select class="form-control" style="width:20%;" name="faixa_salarial">
+            <option select value="Ate 1k">Ate 1.000 R$</option>
+            <option select value="De 1k a 2k">De 1.000 R$ Ate 2000R$</option>
+            <option select value="De 2k a 3k">De 2.000 R$ Ate 3000R$</option>
+            <option select value="Acima de 3k">Acima de 3.000 R$</option>
+          </select></br>
+          <label >Requesitos da Vaga:</label><br>
+          <input class="form-control" style="width:50%;" value="""></input><br>
+          <label >Escolaridade Mínima:</label><br>
+          <select class="form-control" style="width:20%;" name="faixa_salarial">
+            <option select>Ensino Médio</option>
+            <option select> Tecnólogo</option>
+            <option select>Ensino Superior</option>
+            <option select> Pós / MBA / Mestrado</option>
+            <option select>Doutorado</option>
+          </select></br>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
 {%endblock  %}

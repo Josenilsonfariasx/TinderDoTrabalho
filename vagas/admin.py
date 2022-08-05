@@ -1,5 +1,4 @@
 from django.contrib import admin
-from .models import Categoria, Vagas
+from .models import Vagas
 # Register your models here.
 admin.site.register(Vagas)
-admin.site.register(Categoria)
