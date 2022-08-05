@@ -17,6 +17,10 @@ def listar_vagas(request):
             return render (request, 'listar.html', {'vagas': vagas})
     else:
         return redirect('/auth/login/?status=2')
+
 def i_vagas (request,id):
     vaga = Vagas.objects.get(id = id)
     return render(request, 'info.html',{'vaga': vaga})
+
+def cadastrar_vaga():
+    pass

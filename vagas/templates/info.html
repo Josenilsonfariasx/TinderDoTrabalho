@@ -1,9 +1,10 @@
 {%extends 'base.html'%} 
 {% block  'title'%}Vaga {{vaga.categoria}}{%endblock  %}
 {%block 'body'%}
-
+<div class="container">
 <form class='control'>
-      <label >Nome da Vaga:</label>
+     <br>
+     <br><label >Nome da Vaga:</label>
       <input class="form-control" style="width:50%;"  type="text" value="{{vaga.nome}}"></input><br>
       <label >Descricao da Vaga:</label><br>
       <textarea style="width:50%;" name="descricao" rows="4">{{vaga.descricao}}</textarea><br><br>
@@ -24,10 +25,11 @@
         <option select> Pós / MBA / Mestrado</option>
         <option select>Doutorado</option>
       </select></br>
-      <a href="{%url 'listar_vagas'%}" class="card-link">Voltar</a>
-      <a href="#" class="card-link">Salvar</a>
+      <a type="button" href="{%url 'listar_vagas'%}" class="btn btn-success" value="Voltar">Voltar</a>
+      <input type="submit" class="btn btn-success" value="Salvar">      
     </div>
+    
   </div>
 </form>
-
+</div>
 {%endblock%}
