@@ -15,7 +15,8 @@ def listar_vagas(request):
     if request.session.get('usuario'):
         vagas = Vagas.objects.all()
         form =CriarVaga
-        return render (request, 'listar.html', {'vagas': vagas, 'form':form})
+        status = request.GET.get('status')
+        return render (request, 'listar.html', {'vagas': vagas, 'form':form, 'status':status})
     else:
         return redirect('/auth/login/?status=2')
 
@@ -28,8 +29,7 @@ def cadastrar_vaga(request):
         form = CriarVaga(request.POST)
         
         if form.is_valid():
-            pass
+            form.save()
+            return redirect('/vagas/listar_vagas/?status=0')
         else:
-            pass
-
-    
+            return redirect('/vagas/listar_vagas/?status=1')
