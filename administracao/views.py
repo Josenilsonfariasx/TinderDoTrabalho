@@ -3,7 +3,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from urllib import request
 from administracao.models import Administrador
-
+from vagas.forms import CriarVaga
+from vagas.models import Vagas
 
 def login(request):
 
@@ -29,9 +30,10 @@ def sair(request):
     return redirect ('/auth/login/')
 
 def home(request):
+    
     status = request.GET.get('status')
     if request.session.get('usuario'):
-        administrador = Administrador.objects.get(id = request.session['usuario'])
+        administrador = Administrador.objects.get(id = request.session['usuario'],)
         return render(request,'home.html',{'status':status})
     else:
         return redirect ('/auth/login/?status=2')
