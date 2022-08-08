@@ -5,6 +5,7 @@ from urllib import request
 from administracao.models import Administrador
 from vagas.forms import CriarVaga
 from vagas.models import Vagas
+from usuario.models import usuario
 
 def login(request):
 
@@ -37,3 +38,7 @@ def home(request):
         return render(request,'home.html',{'status':status})
     else:
         return redirect ('/auth/login/?status=2')
+
+def listar_candidatos(request):
+    candidatos = usuario.objects.all()
+    return render (request, 'listar_candidatos.html', {'candidatos':candidatos})

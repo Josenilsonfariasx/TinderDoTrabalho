@@ -1,7 +1,8 @@
+from gc import get_objects
 import imp
 from importlib.metadata import requires
 from multiprocessing import reduction
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponse
 from usuario.models import usuario
 from .models import Vagas
@@ -23,13 +24,14 @@ def listar_vagas(request):
 def i_vagas (request,id):
     vaga = Vagas.objects.get(id = id)
     return render(request, 'info.html',{'vaga': vaga})
-
 def cadastrar_vaga(request):
     if request.method == 'POST':
-        form = CriarVaga(request.POST)
-        
+        form = CriarVaga(request.POST)        
         if form.is_valid():
             form.save()
             return redirect('/vagas/listar_vagas/?status=0')
         else:
             return redirect('/vagas/listar_vagas/?status=1')
+def editar_vaga(request, id):
+    vaga = get_object_or_404()
+    pass

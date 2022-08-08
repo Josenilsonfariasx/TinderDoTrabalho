@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}Listar Candidatos{% endblock 'title' %}
+{% block 'body' %}
+{%if not candidatos%}
+  <br><br><div class="card text-center">
+      <div class="card-header">
+        VAGAS
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Listagem de Candidatos</h5>
+        <p class="card-text">Nao conseguimos encontrar Candidatos para as vagas<br></p>
+        <a class ='button'href="{%url 'home'%}">Voltar</a>
+      </div>
+    </div>
+    {% endif %}
+    <div class='row'>
+    {% for candidato in candidatos  %}
+      <div class='col-md'>
+      <div class="card" style="width: 18rem;">
+          <div class="card-body">
+              <h5 class="card-title">{{candidato.nome}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted"></h6>
+                  <p class="card-text"></p>
+              <a href="" class="card-link">Ver +</a>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endblock  %}

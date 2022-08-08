@@ -49,20 +49,16 @@
         </button>
       </div>
       <div class="modal-body" method="POST">
-        <form action="{%url 'cadastrar_vaga'%}" method="POST">{%csrf_token%}
+        <form class='control' action="{%url 'cadastrar_vaga'%}" method="POST">{%csrf_token%}
           <table>
+           
           {{form.as_table}}
-          <select class="form-control" required="" style="width:20%;" name="faixa_salarial">
-            <option select>Ensino Médio</option>
-            <option select> Tecnólogo</option>
-            <option select>Ensino Superior</option>
-            <option select> Pós / MBA / Mestrado</option>
-            <option select>Doutorado</option>
-          </select></br>
-          </table>
+          
+          </table><br>
           <div class="modal-footer">
             <a type="button" href="{%url 'listar_vagas'%}" class="btn btn-success" value="Voltar">Voltar</a>
             <input type="submit" class="btn btn-success" value="Salvar"></a>  
+
           </div>
         </form>
       </div>
