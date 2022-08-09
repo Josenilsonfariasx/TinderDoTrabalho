@@ -2,10 +2,10 @@ from django.db import models
 from usuario.models import usuario
 
 class Vagas(models.Model):
-    faixa_CHOICES = (("1k", "Ate 1k"),
-                     ("1-2", "2k a 3K"),
-                     ("2-3", "2k a 3k"),
-                     ("3+", "Acima de 3k")
+    faixa_CHOICES = (("ate 1k", "Ate 1k"),
+                     ("1k a 2k", "1k a 2k"),
+                     ("2k a 3k", "2k a 3K"),
+                     ("3k+", "Acima de 3k"),
                      )
 
     escolaridade_CHOICES = (("Ensino fundamental", "Ensino Fundamental"),
@@ -18,7 +18,7 @@ class Vagas(models.Model):
 
     nome = models.CharField(max_length = 100)
     descricao = models.TextField(max_length=2000)
-    faixa_salarial = models.CharField(max_length=5,choices=faixa_CHOICES )
+    faixa_salarial = models.CharField(max_length=10,choices=faixa_CHOICES )
     requisitos = models.TextField(max_length=100)
     escolaridade = models.CharField(max_length=50, choices=escolaridade_CHOICES, null=True)
     class Meta:

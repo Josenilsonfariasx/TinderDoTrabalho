@@ -1,0 +1,17 @@
+{%extends 'base.html'%} 
+{% block  'title'%}Vaga {{vaga.categoria}}{%endblock  %}
+{%block 'body'%}
+<div class="container">
+<form class='control' action ="{% url 'editar_vagas' vaga.id %}"method="POST">{%csrf_token%}
+    <table>   
+      {{form}}
+    </table>
+    
+    <a href="{%url 'listar_vagas'%}" class="btn btn-success" value="Voltar">Voltar</a>
+    <input type="submit" class="btn btn-warning" value="Editar">
+    </div>
+    
+  </div>
+</form>
+</div>
+{%endblock%}

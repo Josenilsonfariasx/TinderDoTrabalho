@@ -4,29 +4,16 @@
 <div class="container">
 <form class='control' action="" method="POST">{%csrf_token%}
      <br>
-     <br><label >Nome da Vaga:</label>
-      <input class="form-control" required="required" style="width:50%;"  type="text" value="{{vaga.nome}}"></input><br>{% csrf_token %}
-      <label >Descricao da Vaga:</label><br>
-      <textarea style="width:50%;" required="required" name="descricao" rows="4">{{vaga.descricao}}</textarea><br><br>
-      <label >Faixa Salarial:</label>
-      <select class="form-control" required="required" style="width:20%;" name="faixa_salarial">
-        <option select value="Ate 1k">Ate 1.000 R$</option>
-        <option select value="De 1k a 2k">De 1.000 R$ Ate 2000R$</option>
-        <option select value="De 2k a 3k">De 2.000 R$ Ate 3000R$</option>
-        <option select value="Acima de 3k">Acima de 3.000 R$</option>
-      </select required="required"></br>
-      <label >Requesitos da Vaga:</label><br>
-      <input class="form-control" required="required" style="width:50%;" value="{{vaga.requisitos}}"></input><br>
-      <label >Escolaridade Mínima:</label><br>
-      <select class="form-control" required="" style="width:20%;" name="faixa_salarial">
-        <option select>Ensino Médio</option>
-        <option select> Tecnólogo</option>
-        <option select>Ensino Superior</option>
-        <option select> Pós / MBA / Mestrado</option>
-        <option select>Doutorado</option>
-      </select></br>
+     <br><b><label >Nome da Vaga:</label><b>
+      <input class="form-control" required="required" style="width:50%;"  type="text" value="{{vaga.nome}}" readonly></input><br>{% csrf_token %}
+      <b> <label >Descricao da Vaga:</label><b><br>
+      <textarea style="width:50%;" required="required" name="descricao" rows="4" readonly>{{vaga.descricao}}</textarea><br><br>
+      <b><label >Faixa Salarial:</label><b> {{vaga.faixa_salarial}}<br>
+        <b><label >Requesitos da Vaga:</label><b><br>
+      <input class="form-control" required="required" style="width:50%;" value="{{vaga.requisitos}}" readonly></input><br>
+      <label >Escolaridade Mínima:</label>{{vaga.escolaridade}}<br><br>
       <a type="button" href="{%url 'listar_vagas'%}" class="btn btn-success" value="Voltar">Voltar</a>
-      <input type="submit" class="btn btn-success" value="Editar">   
+      <a href="{%url 'edit_vagas' vaga.id%}" class="btn btn-warning" >Editar </a  >
       <a type="button" href="" class="btn btn-danger" value="Voltar">Excluir</a>   
     </div>
     

@@ -14,6 +14,11 @@
     Vaga salva com sucesso
   </div>
   {%endif%}
+  {%if status == '0'%}
+    <div class="alert alert-danger" role="alert">
+      Nao foi possivel editar vaga
+    </div>
+  {%endif%}
   {%if not vagas%}
     <br><br><div class="card text-center">
         <div class="card-header">
@@ -33,7 +38,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{vaga.nome}}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{vaga.requisitos}}</h6>
-                    <p class="card-text">{{vaga.requisitos}}</p>
+                    <p class="card-text">Faixa Salarial {{vaga.faixa_salarial}}</p>
                 <a href="{% url 'i_vagas' vaga.id %}" class="card-link">Ver +</a>
       </div>
     </div>
@@ -57,7 +62,7 @@
           </table><br>
           <div class="modal-footer">
             <a type="button" href="{%url 'listar_vagas'%}" class="btn btn-success" value="Voltar">Voltar</a>
-            <input type="submit" class="btn btn-success" value="Salvar"></a>  
+            <input type="submit" class="btn btn-success" value="Salvar">
 
           </div>
         </form>

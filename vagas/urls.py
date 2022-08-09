@@ -8,5 +8,7 @@ urlpatterns = [
     path('listar_vagas/', views.listar_vagas, name='listar_vagas'),
     path('i_vagas/<int:id>', views.i_vagas, name='i_vagas'),
     path('cadastrar_vaga/', views.cadastrar_vaga, name='cadastrar_vaga'),
-    path('editar_vagas/', views.editar_vaga, name="editar_vaga"),
+    path('vagaEdit/<int:id>', views.vaga, name="edit_vagas"),
+    path('vaga_delete/<int:id>', views.deletar_vaga, name="delete_vagas"),
+    path('editar_vagas/<int:id>', views.editar_vaga, name="editar_vagas"),
 ]
