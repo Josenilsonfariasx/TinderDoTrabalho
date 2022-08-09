@@ -1,9 +1,11 @@
 from hashlib import sha256
+from urllib import request
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
 from usuario.models import usuario
-
+from vagas.forms import forms
+from vagas.models import Vagas
 
 def cadastrar(request):
     status = request.GET.get('status')
@@ -52,4 +54,15 @@ def validar_login(request):
         return redirect('/auth/home_user/?status=0')
 
 def home_user(request):
-    return HttpResponse('ola')
+    return render(request, 'home_user.html')
+
+def listar(request):
+    vaga = Vagas.objects.all()
+    status = request.GET.get('status')
+    #return render (request, 'listagem.html',{'vagas':vaga, 'status':status})
+    return HttpResponse(vaga)
+
+def entrar_vaga(request, id):
+    vagas = Vagas.objects.all()
+    status = request.GET.get('status')
+    return render(request, 'vaga_entrar.html',{'vagas':vagas, 'status':status})

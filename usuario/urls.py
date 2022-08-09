@@ -9,4 +9,6 @@ urlpatterns = [
    path('logar/', views.logar, name='logar'),
    path('validar_login/', views.validar_login, name='validar_login'),
    path('home_user/', views.home_user, name='home_user'),
+   path('listar/', views.listar, name="listar"),
+   path('vaga_entrar/<int:id>', views.entrar_vaga, name="entrar_vaga"),
 ]

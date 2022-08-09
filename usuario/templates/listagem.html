@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{%block 'title'%}Listar vagas{%endblock%}
+{% block  'body'%}
+<div class='container'><br>
+  {%if not vagas%}
+    <br><br><div class="card text-center">
+        <div class="card-header">
+          <b>VAGAS<b>
+        </div>
+        <div class="card-body">
+         <b><h5 class="card-title">Listagem de vagas</h5><b>
+          <b><p class="card-text">Sem vagas no momento<br>Tente novamente mais tarde </p>
+         
+        </div>
+      </div>
+      {% endif %}
+      <div class='row'>
+      {% for vaga in vagas  %}
+        <div class='col-md'>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{vaga.nome}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{vaga.requisitos}}</h6>
+                    <p class="card-text">Faixa Salarial {{vaga.faixa_salarial}}</p>
+                <a href="{% url 'entrar_vaga' vaga.id %}" class="card-link">Ver +</a>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cadastrar Vaga</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" method="POST">
+        <form class='control' action="{%url 'cadastrar_vaga'%}" method="POST">{%csrf_token%}
+          <table>
+           
+          {{form.as_table}}
+          
+          </table><br>
+          <div class="modal-footer">
+            <a type="button" href="{%url 'listar_vagas'%}" class="btn btn-success" value="Voltar">Voltar</a>
+            <input type="submit" class="btn btn-success" value="Salvar">
+
+          </div>
+        </form>
+      </div>
+     
+    </div>
+  </div>
+</div>
+</div>
+
+{%endblock  %}
