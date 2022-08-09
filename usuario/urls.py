@@ -8,5 +8,5 @@ urlpatterns = [
    path('validar_cadastro/', views.validar_cadastro, name='validar_cadastro'),
    path('logar/', views.logar, name='logar'),
    path('validar_login/', views.validar_login, name='validar_login'),
-    #path('sair/', views.sair, name='sair'),
+   path('home_user/', views.home_user, name='home_user'),
 ]

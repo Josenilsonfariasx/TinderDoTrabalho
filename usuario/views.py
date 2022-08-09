@@ -43,13 +43,13 @@ def validar_login(request):
     email = request.POST.get('email')
     senha = request.POST.get('senha')
 
-    Usuario = usuario.objects.filter(email = email).filter(senha = senha)
-
-    if (len(Usuario) == 0):
+    usuarios = usuario.objects.filter(email = email)
+    senha = usuario.objects.filter(senha = senha)
+    if (len(usuarios) == 0 and len(senha) == 0):
         return redirect('/auth/logar/?status=1')
-    elif(len(Usuario)>0):
-        request.session['Usuario'] = usuario[0].id   
-        return redirect ('/auth/home_user/?status=0')
+    else:
+        request.session['candidatos'] = usuarios[0].id   
+        return redirect('/auth/home_user/?status=0')
 
 def home_user(request):
-    pass
+    return HttpResponse('ola')
