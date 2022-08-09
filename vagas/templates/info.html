@@ -1,5 +1,5 @@
 {%extends 'base.html'%} 
-{% block  'title'%}Vaga {{vaga.categoria}}{%endblock  %}
+{% block  'title'%}Vaga {{vaga.nome}}{%endblock  %}
 {%block 'body'%}
 <div class="container">
 <form class='control' action="" method="POST">{%csrf_token%}
@@ -14,9 +14,28 @@
       <label >Escolaridade Mínima:</label>{{vaga.escolaridade}}<br><br>
       <a type="button" href="{%url 'listar_vagas'%}" class="btn btn-success" value="Voltar">Voltar</a>
       <a href="{%url 'edit_vagas' vaga.id%}" class="btn btn-warning" >Editar </a  >
-      <a type="button" href="" class="btn btn-danger" value="Voltar">Excluir</a>   
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+        Excluir
+      </button>  
     </div>
-    
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Vaga {{vaga.nome}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            </button>
+          </div>
+          <div class="modal-body">
+            Deseja realmente excluir a vaga {{vaga.nome}} ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" href= "{url 'listar_vagas'}"class="btn btn-secondary" data-dismiss="modal">Volar</button>
+            <a type="button" href="{%url 'delete_vagas' vaga.id%}" class="btn btn-danger" value="excluir">Excluir</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </form>
 </div>

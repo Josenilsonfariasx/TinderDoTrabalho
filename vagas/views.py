@@ -55,5 +55,7 @@ def editar_vaga(request, id):
     else:
         return redirect ('/listar_vagas/?status=5')
 
-def deletar_vaga(request):
-    pass
+def deletar_vaga(request, id):
+    vaga = get_object_or_404(Vagas, pk=id)
+    vaga.delete()
+    return redirect ('/vagas/listar_vagas/?status=6')
