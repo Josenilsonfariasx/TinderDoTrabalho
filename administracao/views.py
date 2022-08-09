@@ -16,7 +16,7 @@ def valida_login(request):
     email = request.POST.get('email')
     senha = request.POST.get('senha')
     
-    #senha = sha256 (senha.encode()).hexdigest()
+    
     usuario = Administrador.objects.filter(email = email).filter(senha=senha)
 
     if (len(usuario) == 0):
@@ -24,7 +24,7 @@ def valida_login(request):
     elif(len(usuario)>0):
         request.session['usuario'] = usuario[0].id   
         return redirect (f'/auth/home/?status=0')
-        #return HttpResponse(request.session['usuario'])
+    
 
 def sair(request):
     request.session.flush()
