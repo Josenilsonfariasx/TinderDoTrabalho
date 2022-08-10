@@ -1,22 +1,22 @@
 
 {%extends 'home_user.html'%} 
-{% block 'head' %}
 
-{% block  'title'%} {{vaga.nome}}{%endblock  %}
-{% endblock  %}
+
+{% block  'title'%}{{vagas.nome}}{%endblock  %}
+
 {%block 'body'%}
 <div class="container">
 <form class='control' action="" method="POST">{%csrf_token%}
      <br>
      <br><b><label >Nome da Vaga:</label><b>
-      <input class="form-control" required="required" style="width:50%;"  type="text" value="{{vaga.nome}}" readonly></input><br>{% csrf_token %}
+      <input class="form-control" required="required" style="width:50%;"  type="text" value="{{vagas.nome}}" readonly></input><br>{% csrf_token %}
       <b> <label >Descricao da Vaga:</label><b><br>
-      <textarea style="width:50%;" required="required" name="descricao" rows="4" readonly>{{vaga.descricao}}</textarea><br><br>
-      <b><label >Faixa Salarial:</label><b> {{vaga.faixa_salarial}}<br>
+      <textarea style="width:50%;" required="required" name="descricao" rows="4" readonly>{{vagas.descricao}}</textarea><br><br>
+      <b><label >Faixa Salarial:</label><b> {{vagas.faixa_salarial}}<br>
         <b><label >Requesitos da Vaga:</label><b><br>
-      <input class="form-control" required="required" style="width:50%;" value="{{vaga.requisitos}}" readonly></input><br>
-      <label >Escolaridade Mínima:</label>{{vaga.escolaridade}}<br><br>
-    
+      <input class="form-control" required="required" style="width:50%;" value="{{vagas.requisitos}}" readonly></input><br>
+      <label >Escolaridade Mínima:</label>{{vagas.escolaridade}}<br><br>
+      <a href="" class="btn btn-success" >Se candidatar</a>  
 </form>
 </div>
 {%endblock%}

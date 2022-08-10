@@ -1,4 +1,5 @@
 from hashlib import sha256
+from sqlite3 import adapt
 from urllib import request
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
@@ -59,10 +60,11 @@ def home_user(request):
 def listar(request):
     vaga = Vagas.objects.all()
     status = request.GET.get('status')
-    #return render (request, 'listagem.html',{'vagas':vaga, 'status':status})
-    return HttpResponse(vaga)
+    usuarios = usuario.objects.all()
+    return render (request, 'listagem.html',{'vagas':vaga,'usuarios':usuarios ,'status':status})
+    
 
 def entrar_vaga(request, id):
-    vagas = Vagas.objects.all()
+    vagas = Vagas.objects.get(id = id)
     status = request.GET.get('status')
     return render(request, 'vaga_entrar.html',{'vagas':vagas, 'status':status})
