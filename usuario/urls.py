@@ -11,4 +11,5 @@ urlpatterns = [
    path('home_user/', views.home_user, name='home_user'),
    path('listar/', views.listar, name="listar"),
    path('vaga_entrar/<int:id>', views.entrar_vaga, name="entrar_vaga"),
+   path('perfil/', views.perfil, name='perfil'),
 ]
