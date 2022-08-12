@@ -53,7 +53,17 @@ Trata-se de uma aplicação onde o foco principal é criação de vagas de empre
  ![Captura de tela de 2022-08-12 19-33-47](https://user-images.githubusercontent.com/101416192/184453015-57d5ac9f-ddbb-4728-8549-9a041099c55c.png)
  
    <li>Listar e adicionar vagas</li>
-![Captura de tela de 2022-08-12 19-38-22](https://user-images.githubusercontent.com/101416192/184453334-9d9df12b-1ea5-4e54-b8e0-ecf53c5eaa71.png)
+   
+ ![Captura de tela de 2022-08-12 19-38-22](https://user-images.githubusercontent.com/101416192/184453334-9d9df12b-1ea5-4e54-b8e0-ecf53c5eaa71.png)
+ 
+   <li>CRUD do Administrador</li>
+   
+ ![Captura de tela de 2022-08-12 19-43-25](https://user-images.githubusercontent.com/101416192/184453713-8883e563-dc47-4d29-ba23-16f9feedf893.png)
+ 
+  <li>Listar Candidatos</li>
+  
+ ![Captura de tela de 2022-08-12 19-47-30](https://user-images.githubusercontent.com/101416192/184454039-110f504d-9395-4a73-a10a-87ffe09fa928.png)
+
 
 
   
