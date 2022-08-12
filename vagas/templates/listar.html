@@ -3,7 +3,6 @@
 {% block  'body'%}
 <div class='container'><br>
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Nova Vaga</button><br><br>
-    
   {%if status == '1'%}
   <div class="alert alert-danger" role="alert">
       Nao foi possivel salvar nova vaga. Tente novamente
@@ -14,7 +13,7 @@
     Vaga salva com sucesso
   </div>
   {%endif%}
-  {%if status == '0'%}
+  {%if status == '1'%}
     <div class="alert alert-danger" role="alert">
       Nao foi possivel editar vaga
     </div>
@@ -38,7 +37,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{vaga.nome}}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{vaga.requisitos}}</h6>
-                    <p class="card-text">Faixa Salarial {{vaga.candidatos}}</p>
+                    <p class="card-text">Faixa Salarial {{vaga.faixa_salarial}}</p>
                 <a href="{% url 'i_vagas' vaga.id %}" class="card-link">Ver +</a>
       </div>
     </div>
@@ -57,7 +56,7 @@
         <form class='control' action="{%url 'cadastrar_vaga'%}" method="POST">{%csrf_token%}
           <table>
            
-          {{form.as_table}}
+          {{form.as_table}}{{valor.email}}
           
           </table><br>
           <div class="modal-footer">

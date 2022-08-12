@@ -2,11 +2,11 @@ from hashlib import sha256
 import re
 from sqlite3 import adapt
 from urllib import request
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponse
 
 from usuario.models import usuario
-from vagas.forms import forms
+from vagas.forms import CriarVaga, forms
 from vagas.models import Vagas
 
 def cadastrar(request):
@@ -49,7 +49,7 @@ def validar_login(request):
 
     usuarios = usuario.objects.filter(email = email).filter(senha = senha)
     
-    if (len(usuarios) == 0 and len(senha) == 0):
+    if (len(usuarios) == 0 or len(senha) == 0):
         return redirect('/auth/logar/?status=1')
     else:
         request.session['candidatos'] = usuarios[0].email
@@ -57,8 +57,7 @@ def validar_login(request):
 
 def home_user(request):
     usuarios = usuario.objects.get(email = request.session.get('candidatos'))
-    user = request.session['candidatos'] 
-    return render(request, 'home_user.html', {'user':user, 'usuarios':usuarios})
+    return render(request, 'home_user.html', {'usuarios':usuarios})
 
 def listar(request):
     vaga = Vagas.objects.all()
@@ -75,3 +74,12 @@ def entrar_vaga(request, id):
 def perfil(request):
     usuarios = usuario.objects.get(email = request.session.get('candidatos'))
     return render(request, 'perfil.html', {'usuarios':usuarios})
+
+def candidatar(request, id):
+    log = usuario.objects.get(email = request.session.get('candidatos'))
+    request.session['salvar'] = log
+    vaga = Vagas.objects.get(id= id)
+    if vaga == Vagas.objects.get(id = id):
+        salvar = Vagas.candidatos.add(request.session['salvar'])
+        salvar.save()
+        return render(request,'opam.html',{'vaga':vaga})

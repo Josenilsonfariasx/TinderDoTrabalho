@@ -6,7 +6,7 @@
 
 {%block 'body'%}
 <div class="container">
-<form class='control' action="" method="POST">{%csrf_token%}
+<form class='control'>
      <br>
      <br><b><label >Nome da Vaga:</label><b>
       <input class="form-control" required="required" style="width:50%;"  type="text" value="{{vagas.nome}}" readonly></input><br>{% csrf_token %}
@@ -16,7 +16,7 @@
         <b><label >Requesitos da Vaga:</label><b><br>
       <input class="form-control" required="required" style="width:50%;" value="{{vagas.requisitos}}" readonly></input><br>
       <label >Escolaridade Mínima:</label>{{vagas.escolaridade}}<br><br>
-      <a href="" class="btn btn-success" >Se candidatar</a>  
+      <a href="{%url 'candidatar' vagas.id%}" class="btn btn-success" >Se candidatar</a>  
 </form>
 </div>
 {%endblock%}

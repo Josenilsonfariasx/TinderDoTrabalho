@@ -34,7 +34,7 @@ def home(request):
     
     status = request.GET.get('status')
     if request.session.get('usuario'):
-        administrador = Administrador.objects.get(id = request.session['usuario'],)
+        administrador = Administrador.objects.get(id = request.session['usuario'])
         return render(request,'home.html',{'status':status})
     else:
         return redirect ('/auth/login/?status=2')

@@ -8,6 +8,7 @@ from django.http import HttpResponse
 from usuario.models import usuario
 from .models import Vagas
 from .forms import CriarVaga
+from . import forms
 # Create your views here.
 
 def cadastrar(request):
@@ -26,9 +27,10 @@ def vaga(request, id):
 def listar_vagas(request):
     if request.session.get('usuario'):
         vagas = Vagas.objects.all()
-        form =CriarVaga
+        form =CriarVaga()
+        valor = request.session['usuario']
         status = request.GET.get('status')
-        return render (request, 'listar.html', {'vagas': vagas, 'form':form, 'status':status})
+        return render (request, 'listar.html', {'vagas': vagas, 'form':form, 'status':status, 'valor':valor})
     else:
         return redirect('/auth/login/?status=2')
 
