@@ -14,7 +14,7 @@ Trata-se de uma aplicação onde o foco principal é criação de vagas de empre
 
 <li>----------------------------------------------------------------------------------------------------------------------------------------------------------</li>
 
-<h2>Administrador Interface</h2>
+
 
 
   <li>Criaremos nossa ambiente virtual com o seguinte comando</li>
@@ -48,6 +48,9 @@ Trata-se de uma aplicação onde o foco principal é criação de vagas de empre
    <li>Criamos o admin </li>
   
  ![Captura de tela de 2022-08-12 19-29-14](https://user-images.githubusercontent.com/101416192/184452643-8c1ad6f3-10c3-4361-86d8-b223a6027c36.png)
+ 
+ <li>----------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+ <h2>Administrador Interface</h2>
  
    <li>Vamos para pagina de login admin na url 127.0.0.1:8000/auth/login</li>
    
