@@ -14,7 +14,7 @@ Trata-se de uma aplicação onde o foco principal é criação de vagas de empre
 
   <li>Criaremos nossa ambiente Virtual com o seguinte comando</li>
   
-  ![image](https://user-images.githubusercontent.com/101416192/184448136-da8a7d7a-9342-44d4-a4f8-6664be9603ff.png)
+![Captura de tela de 2022-08-12 18-41-17](https://user-images.githubusercontent.com/101416192/184448525-be7f047a-430c-479e-8b58-4b3c7e8c192a.png)
 
 
   
