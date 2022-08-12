@@ -75,6 +75,18 @@ Trata-se de uma aplicação onde o foco principal é criação de vagas de empre
   <li>Pagina inicial do usuario apos efetuar o login </li>
   
 ![Captura de tela de 2022-08-12 19-54-49](https://user-images.githubusercontent.com/101416192/184454519-e3b520da-892a-433d-ab65-5e778fdc326f.png)
+  
+  <li>Usuario pode verificar o perfil dele direto pela navbar ao cliclar em perfil</li>
+  
+![Captura de tela de 2022-08-12 19-57-29](https://user-images.githubusercontent.com/101416192/184454705-95b2ce91-a914-47c4-b861-828ed734e0ad.png)
+  
+  <li>Usuario pode verificar as vagas nas quais pode se candidatar</li>
+  
+![Captura de tela de 2022-08-12 19-59-13](https://user-images.githubusercontent.com/101416192/184454799-75e0bdda-60ea-41cd-9ce0-add376d5cb1e.png)
+  
+  <li>Ao cliclar na vaga tem o botao de se candidatar a vaga onde basta clicar que sera redirecionado para home e uma mensagem de sucesso</li>
+  
+  ![Captura de tela de 2022-08-12 20-00-09](https://user-images.githubusercontent.com/101416192/184454862-9b53d808-904a-42b0-adef-30638ca7ba7d.png)
 
   
 
