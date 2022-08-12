@@ -31,7 +31,7 @@ def validar_cadastro(request):
         return redirect ('/auth/cadastrar/?status=3')
 
     try:
-        senha = sha256(senha.encode()).hexdigest
+        
         Usuario = usuario(nome = nome, email=email, senha = senha)
         Usuario.save()
 
@@ -76,10 +76,10 @@ def perfil(request):
     return render(request, 'perfil.html', {'usuarios':usuarios})
 
 def candidatar(request, id):
-    log = usuario.objects.get(email = request.session.get('candidatos'))
-    request.session['salvar'] = log
+    log = usuario.objects.filter(email = request.session.get('candidatos'))
+    request.session['candidato'] = log[0].id
+    id_usuario = request.session['candidato'] = log[0].id
     vaga = Vagas.objects.get(id= id)
-    if vaga == Vagas.objects.get(id = id):
-        salvar = Vagas.candidatos.add(request.session['salvar'])
-        salvar.save()
-        return render(request,'opam.html',{'vaga':vaga})
+    vaga.setCandidato(id_usuario)
+    
+    return render(request, 'opam.html', {'vaga':vaga})
