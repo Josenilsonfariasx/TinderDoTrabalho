@@ -2,6 +2,11 @@
 {%block 'title'%}Listar vagas{%endblock%}
 {% block  'body'%}
 <div class='container'><br>
+  {%if status == '2'%}
+  <div class="alert alert-success" role="alert">
+    Sucesso
+  </div>
+  {%endif%}
   {%if not vagas%}
     <br><br><div class="card text-center">
         <div class="card-header">

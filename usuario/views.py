@@ -59,8 +59,9 @@ def validar_login(request):
         return redirect('/auth/home_user/?status=0')
 
 def home_user(request):
+    status = request.GET.get('status')
     usuarios = usuario.objects.get(email = request.session.get('candidatos'))
-    return render(request, 'home_user.html', {'usuarios':usuarios})
+    return render(request, 'home_user.html', {'usuarios':usuarios, 'status':status})
 
 def listar(request):
     vaga = Vagas.objects.all()
@@ -86,5 +87,4 @@ def candidatar(request, id):
     vaga = Vagas.objects.get(id= id)
     vaga.setCandidato(id_usuario)
 
-    
-    return redirect('/auth/listar')
+    return redirect('/auth/listar/?status=2')

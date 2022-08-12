@@ -1,19 +1,39 @@
 {% extends 'home_user.html' %}
+{%load static %}
+{% block  'head'%}
+
+<link rel="stylesheet" href="{%static 'css/styles.css'%}"
 
 {% block 'title' %}Perfil{% endblock  %}
+{% endblock  %}
 {% block 'body' %}
 
 <div class="container">
-
-   <br><br><form class="control">
-    <label>Nome:</label>
-    <input type="text" class="form-control" value="{{usuarios.nome}}" readonly ></input><br>
-    <label>Email:</label>
-    <input type="text" class="form-control" value="{{usuarios.email}}" readonly ></input><br>
-    <label>Pretencao Salarial:</label>
-    <input type="text" class="form-control" value="{{usuarios.Pretencao_Salarial}}"readonly ></input><br>
-
-   </form>
+   <div class="container rounded bg-white mt-5 mb-5">
+      <div class="row">
+          <div class="col-md-3 border-right">
+              <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">{{usuarios.nome}}</span><span class="text-black-50">{{usuarios.email}}</span><span> </span></div>
+          </div>
+          <div class="col-md-5 border-right">
+              <div class="p-3 py-5">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                      <h4 class="text-right">Perfil usuario</h4>
+                  </div>
+                  <div class="row mt-2">
+                      <div class="col-md-6"><label class="labels">Nome</label><input type="text" class="form-control" placeholder="first name" value="{{usuarios.nome}}" ></div>
+                  </div>
+                  <div class="row mt-3">
+                      <div class="col-md-6"><label class="labels">Pretencao Salarial: {{usuarios.Pretencao_Salarial}}</label></div>
+                      <div class="col-md-6">
+                        
+                      </div>
+                  </div>
+                  <div class="mt-5 text-center"><a class="btn btn-primary profile-button" href="{%url 'listar'%}" type="button">Vagas</a></div>
+              </div>
+          </div>
+         
+  </div>
+  </div>
 
 
 </div>
