@@ -63,7 +63,20 @@ Trata-se de uma aplicação onde o foco principal é criação de vagas de empre
   <li>Listar Candidatos</li>
   
  ![Captura de tela de 2022-08-12 19-47-30](https://user-images.githubusercontent.com/101416192/184454039-110f504d-9395-4a73-a10a-87ffe09fa928.png)
+ 
+  <li>------------------------------------------------------------------------------------------------------------------------------------------------------------</li>
 
+<h2>Usuario Interface</h2>
+
+  <li>Na url <b>127.0.0.1:8000/auth/cadastrar<b> temos o cadastro do usuario que ira redirecionar para o login</li>
+
+![Captura de tela de 2022-08-12 19-56-14](https://user-images.githubusercontent.com/101416192/184454617-e8666d55-46f9-4783-a9cf-b33774e9e273.png)
+  
+  <li>Pagina inicial do usuario apos efetuar o login </li>
+  
+![Captura de tela de 2022-08-12 19-54-49](https://user-images.githubusercontent.com/101416192/184454519-e3b520da-892a-433d-ab65-5e778fdc326f.png)
+
+  
 
 
   
