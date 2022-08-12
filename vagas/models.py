@@ -25,6 +25,8 @@ class Vagas(models.Model):
 
     def setCandidato(self, candidato_input):
         self.candidatos.add(candidato_input)
+    def Vercandidatos(self, candidato):
+        self.candidatos.get('candidatos')
 
     class Meta:
         verbose_name = 'Vaga'

@@ -41,4 +41,5 @@ def home(request):
 
 def listar_candidatos(request):
     candidatos = usuario.objects.all()
-    return render (request, 'listar_candidatos.html', {'candidatos':candidatos})
+    vaga = Vagas.objects.all()
+    return render (request, 'listar_candidatos.html', {'candidatos':candidatos, 'vaga':vaga})

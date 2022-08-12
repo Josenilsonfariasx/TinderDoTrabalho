@@ -2,6 +2,7 @@
 
 {% block 'title' %}Listar Candidatos{% endblock 'title' %}
 {% block 'body' %}
+<div class="container">
 {%if not candidatos%}
   <br><br><div class="card text-center">
       <div class="card-header">
@@ -15,16 +16,50 @@
     </div>
     {% endif %}
     <div class='row'>
-    {% for candidato in candidatos  %}
+    {% for candidato in candidatos %}
+    
       <div class='col-md'>
       <div class="card" style="width: 18rem;">
           <div class="card-body">
-              <h5 class="card-title">{{candidato.nome}}</h5>
+              <h5 class="card-title">Candidato {{candidato.nome}}</h5>
               <h6 class="card-subtitle mb-2 text-muted"></h6>
                   <p class="card-text"></p>
-              <a href="" class="card-link">Ver +</a>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">ver +</button>
+
+    </div>
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Candidato  {{candidato.nome}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" method="POST">
+          <form class='control' action="{%url 'cadastrar_vaga'%}" method="POST">{%csrf_token%}
+            
+              <br><b><label >Nome:</label><b>
+              <input class="form-control" required="required" style="width:50%;"  type="text" value="{{candidato.nome}}" readonly></input><br>
+              
+              <br><b><label >Email:</label><b>
+              <input class="form-control" required="required" style="width:50%;"  type="text" value="{{candidato.email}}" readonly></input><br>
+              
+              <br><b><label >Pretencao Salarial</label><b>
+                <input class="form-control" required="required" style="width:50%;"  type="text" value="{{candidato.Pretencao_Salarial}}" readonly></input><br>    
+                <div class="modal-footer">
+              <a type="button" href="{%url 'listar_candidatos'%}" class="btn btn-success" value="Voltar">Voltar</a>
+  
+            </div>
+          </form>
+        </div>
+       
+      </div>
     </div>
   </div>
 </div>
+
 {% endfor %}
+</div>
 {% endblock  %}

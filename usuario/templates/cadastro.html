@@ -34,18 +34,21 @@
                   <form method="POST" action="{%url 'validar_cadastro'%}">{% csrf_token %}
 
                   <h3 class="mb-5">Usuário</h3>
-                    
+                   
                   <div class="form-outline mb-4">
                     <label class="form-label" for="typePasswordX-2">Nome</label>
                     <input type="text"  name="nome" class="form-control form-control-lg" />
                   </div> 
-
+  
                   <div class="form-outline mb-4">
                     <label class="form-label" type="text">Email</label>
                     <input type="text"  name="email" class="form-control form-control-lg" />
-                   
+  
                   </div>
-      
+                  <div class="form-outline mb-4">
+                    {{form}}
+                </div>
+                   
                   <div class="form-outline mb-4">
                     <label class="form-label" for="typePasswordX-2">Senha</label>
                     <input type="password"  name="senha" class="form-control form-control-lg" />

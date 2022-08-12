@@ -4,20 +4,23 @@ from sqlite3 import adapt
 from urllib import request
 from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponse
+from .forms import CriarUsuario
 
 from usuario.models import usuario
 from vagas.forms import CriarVaga, forms
 from vagas.models import Vagas
-
+from .forms import CriarUsuario
 def cadastrar(request):
+    form = CriarUsuario()
     status = request.GET.get('status')
-    return render(request, 'cadastro.html', {'status':status})
+    return render(request, 'cadastro.html', {'status':status, 'form':form})
 
 def validar_cadastro(request):
-    
+
     email = request.POST.get('email')
     senha = request.POST.get('senha')
     nome = request.POST.get('nome')
+    Pretencao_Salarial = request.POST.get('Pretencao_Salarial')
 
     Usuario = usuario.objects.filter(email = email)
 
@@ -31,17 +34,17 @@ def validar_cadastro(request):
         return redirect ('/auth/cadastrar/?status=3')
 
     try:
-        
-        Usuario = usuario(nome = nome, email=email, senha = senha)
+       # senha = sha256(senha.encode()).hexdigest
+        Usuario = usuario(nome = nome, email=email, senha = senha, Pretencao_Salarial = Pretencao_Salarial)
         Usuario.save()
 
         return redirect ('/auth/logar/?status=0')
     except:
         return redirect ('/auth/cadastrar/?status=4')
-
 def logar(request):
+    candidatos = usuario.objects.all()
     status = request.GET.get('status')
-    return render(request, 'logar.html', {'status':status})
+    return render(request, 'logar.html', {'status':status, 'candidatos':candidatos})
 
 def validar_login(request):
     email = request.POST.get('email')
@@ -73,7 +76,8 @@ def entrar_vaga(request, id):
 
 def perfil(request):
     usuarios = usuario.objects.get(email = request.session.get('candidatos'))
-    return render(request, 'perfil.html', {'usuarios':usuarios})
+    form = CriarUsuario
+    return render(request, 'perfil.html', {'usuarios':usuarios, 'form':form})
 
 def candidatar(request, id):
     log = usuario.objects.filter(email = request.session.get('candidatos'))
@@ -81,5 +85,6 @@ def candidatar(request, id):
     id_usuario = request.session['candidato'] = log[0].id
     vaga = Vagas.objects.get(id= id)
     vaga.setCandidato(id_usuario)
+
     
-    return render(request, 'opam.html', {'vaga':vaga})
+    return redirect('/auth/listar')

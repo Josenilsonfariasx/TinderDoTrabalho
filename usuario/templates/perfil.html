@@ -3,5 +3,18 @@
 {% block 'title' %}Perfil{% endblock  %}
 {% block 'body' %}
 
-{{usuarios.id}}
+<div class="container">
+
+   <br><br><form class="control">
+    <label>Nome:</label>
+    <input type="text" class="form-control" value="{{usuarios.nome}}" readonly ></input><br>
+    <label>Email:</label>
+    <input type="text" class="form-control" value="{{usuarios.email}}" readonly ></input><br>
+    <label>Pretencao Salarial:</label>
+    <input type="text" class="form-control" value="{{usuarios.Pretencao_Salarial}}"readonly ></input><br>
+
+   </form>
+
+
+</div>
 {% endblock  %}
