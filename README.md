@@ -32,4 +32,8 @@ Trata-se de uma aplicação onde o foco principal é criação de vagas de empre
   
 ![Captura de tela de 2022-08-12 19-03-12](https://user-images.githubusercontent.com/101416192/184450570-94ddf519-8d7f-4ca5-9535-fef673596da9.png)
 
+  <li>Rodamos o server</li>
+  
+![Captura de tela de 2022-08-12 19-23-14](https://user-images.githubusercontent.com/101416192/184452185-e16adf70-3322-4475-883e-d8887fc8a792.png)
+
   
