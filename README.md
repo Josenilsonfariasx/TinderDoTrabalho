@@ -12,6 +12,11 @@ Trata-se de uma aplicação onde o foco principal é criação de vagas de empre
 <h4>Vamos aos primeiros passos</h4>
 
 
+<li>----------------------------------------------------------------------------------------------------------------------------------------------------------</li>
+
+<h2>Administrador Interface</h2>
+
+
   <li>Criaremos nossa ambiente virtual com o seguinte comando</li>
   
 ![Captura de tela de 2022-08-12 18-41-17](https://user-images.githubusercontent.com/101416192/184448525-be7f047a-430c-479e-8b58-4b3c7e8c192a.png)
