@@ -3,7 +3,7 @@
 
 > <h1>Tinder Do Trabalho</h1>
 
-Oi pessoal to aqui trazendo este mini projeto dado a responsabilidade de fazelo para uma entrevista de estagio.
+Oi pessoal to aqui trazendo este mini projeto dado a responsabilidade de fazlo para uma entrevista de estagio.
 
 ><h3>Tinder Do Trabalho</h3>
 
