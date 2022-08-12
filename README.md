@@ -20,5 +20,8 @@ Trata-se de uma aplicação onde o foco principal é criação de vagas de empre
   
 ![Captura de tela de 2022-08-12 18-43-37](https://user-images.githubusercontent.com/101416192/184448762-7206cb61-cdcf-4eec-8b4d-cc0ab143e865.png)
 
+  <li> Instalamos o Django</li>
+  
+![Captura de tela de 2022-08-12 18-46-25](https://user-images.githubusercontent.com/101416192/184449068-08fec008-83e8-4cf0-ac1c-33ef24a033c8.png)
 
   
