@@ -24,4 +24,12 @@ Trata-se de uma aplicação onde o foco principal é criação de vagas de empre
   
 ![Captura de tela de 2022-08-12 18-46-25](https://user-images.githubusercontent.com/101416192/184449068-08fec008-83e8-4cf0-ac1c-33ef24a033c8.png)
 
+  <li>Iniciaremos o banco de dados</li>
+  
+![Captura de tela de 2022-08-12 19-00-19](https://user-images.githubusercontent.com/101416192/184450256-c8055147-885d-4cb9-8107-8d8e01c03481.png)
+
+  <li>Criaremos o super user do admin do django</li>
+  
+![Captura de tela de 2022-08-12 19-03-12](https://user-images.githubusercontent.com/101416192/184450570-94ddf519-8d7f-4ca5-9535-fef673596da9.png)
+
   
