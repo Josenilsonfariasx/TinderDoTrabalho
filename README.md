@@ -36,4 +36,24 @@ Trata-se de uma aplicação onde o foco principal é criação de vagas de empre
   
 ![Captura de tela de 2022-08-12 19-23-14](https://user-images.githubusercontent.com/101416192/184452185-e16adf70-3322-4475-883e-d8887fc8a792.png)
 
+   <li>Pagina principal na url 127.0.0.1:8000/admin</li>
+  
+ ![Captura de tela de 2022-08-12 19-25-34](https://user-images.githubusercontent.com/101416192/184452500-73255c03-c8b5-490f-8976-36c02af62b3b.png)
+
+   <li>Criamos o admin </li>
+  
+ ![Captura de tela de 2022-08-12 19-29-14](https://user-images.githubusercontent.com/101416192/184452643-8c1ad6f3-10c3-4361-86d8-b223a6027c36.png)
+ 
+   <li>Vamos para pagina de login admin na url 127.0.0.1:8000/auth/login</li>
+   
+ ![Captura de tela de 2022-08-12 19-31-56](https://user-images.githubusercontent.com/101416192/184452877-244e89f9-dd17-4c57-bf21-a2002c5874ff.png)
+ 
+   <li>Pagina home onde o admin tem todos os acessos possiveis</li>
+  
+ ![Captura de tela de 2022-08-12 19-33-47](https://user-images.githubusercontent.com/101416192/184453015-57d5ac9f-ddbb-4728-8549-9a041099c55c.png)
+ 
+   <li>Listar e adicionar vagas</li>
+![Captura de tela de 2022-08-12 19-38-22](https://user-images.githubusercontent.com/101416192/184453334-9d9df12b-1ea5-4e54-b8e0-ecf53c5eaa71.png)
+
+
   
